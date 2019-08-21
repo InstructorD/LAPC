@@ -25,7 +25,11 @@
             <li><a href="https://innout.com">Link5</a></li>
         </ul>
         <div class="ham">
-            <div class="burger">=</div>
+            <div class="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <ul class="mobileMenu">
                 <li><a href="https://innout.com">Link1</a></li>
                 <li class="subMenuTrigger">
@@ -46,5 +50,18 @@
         <section></section>
     </main>
     <footer></footer>
+    <script>
+        let burger = document.querySelector("div.burger");
+        let ham = document.querySelector("div.ham");
+        burger.addEventListener('click',function(){
+            if(burger.classList.contains("open")){
+                burger.classList.remove("open");
+                ham.classList.remove("open")
+            }else{
+                burger.classList += " open";
+                ham.classList += " open";
+            }
+        })
+    </script>
 </body>
 </html>
