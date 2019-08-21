@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .burger{
+            width:50px;
+            height:50px;
+            position:relative;
+            overflow: hidden;
+        }
+        .burger span{
+            position:absolute;
+            display:block;
+            background-color:darkslategray;
+            height:10px;
+            width:50px;
+            transform:rotate(0deg);
+            opacity:1;
+            border-radius:10px;
+            /* transition:all .3s; */
+            transition:top .3s .15s, transform .3s 0s, opacity .3s 0s;
+        }
+        .burger span:nth-child(1){
+            top:0;
+        }
+        .burger span:nth-child(2){
+            top:20px;
+        }
+        .burger span:nth-child(3){
+            top:40px;
+        }
+        .burger.open span{
+            /* transition:all .3s; */
+            transition:top .3s 0s, transform .3s .15s, opacity .3s 0s;
+        }
+        .burger.open span:nth-child(1){
+            top:20px;
+            transform:rotate(-45deg);
+        }
+        .burger.open span:nth-child(2){
+            opacity:0;
+        }
+        .burger.open span:nth-child(3){
+            top:20px;
+            transform:rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <script>
+
+        let burger = document.querySelector("div.burger");
+        burger.addEventListener('click',function(){
+            if(burger.classList.contains("open")){
+                burger.classList.remove("open");
+            }else{
+                burger.classList += " open";
+            }
+        })
+
+    </script>
+
+</body>
+</html>
